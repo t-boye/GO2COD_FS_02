@@ -1,9 +1,9 @@
-// src/context/ShoppingCartContext.js
+// src/context/CartContext.js
 import React, { createContext, useState, useEffect } from 'react';
 
-export const ShoppingCartContext = createContext();
+export const CartContext = createContext();
 
-export const ShoppingCartProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   // Load cart items from local storage on initial render
@@ -43,8 +43,8 @@ export const ShoppingCartProvider = ({ children }) => {
   };
 
   return (
-    <ShoppingCartContext.Provider value={{ cartItems, addToCart, removeFromCart, getCartCount, getCartTotal }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, getCartCount, getCartTotal }}>
       {children}
-    </ShoppingCartContext.Provider>
+    </CartContext.Provider>
   );
 };

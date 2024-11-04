@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHome, FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
+import { CartContext } from '../context/CartContext'; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const cartContext = useContext(CartContext); // Access the CartContext
+
+  // Check if cartContext is defined and get the cart count
+  const getCartCount = cartContext && cartContext.getCartCount ? cartContext.getCartCount : () => 0;
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -25,10 +30,14 @@ const Navbar = () => {
           </Link>
           <Link to="/cart" className="flex items-center text-white hover:text-yellow-400 transition duration-300">
             <FaShoppingCart className="mr-1" /> Cart
+            {/* Display the cart count */}
+            <span className="ml-1 bg-yellow-400 text-gray-900 rounded-full px-2 text-xs">
+              {getCartCount()}
+            </span>
           </Link>
         </div>
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-white">
+          <button onClick={toggleMenu} className="text-white" aria-label="Toggle menu">
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
@@ -47,6 +56,10 @@ const Navbar = () => {
         </Link>
         <Link to="/cart" className="flex items-center block text-white hover:text-yellow-400 transition duration-300">
           <FaShoppingCart className="mr-1" /> Cart
+          {/* Display the cart count in mobile menu as well */}
+          <span className="ml-1 bg-yellow-400 text-gray-900 rounded-full px-2 text-xs">
+            {getCartCount()}
+          </span>
         </Link>
       </div>
     </nav>

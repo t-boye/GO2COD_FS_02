@@ -1,20 +1,29 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { ShoppingCartProvider } from './context/ShoppingCartContext'; // Import ShoppingCartProvider
+import { ShoppingCartProvider } from './context/ShoppingCartContext'; 
+import ErrorBoundary from './components/ErrorBoundary';
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
+import NotFound from './pages/NotFound'; // Import a NotFound component
 
 const App = () => {
   return (
-    <ShoppingCartProvider> {/* Wrap your app with ShoppingCartProvider */}
+    <ShoppingCartProvider>
       <Router>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/cart" element={<CartPage />} />
-        </Routes>
+        <ErrorBoundary>
+          <Nav />
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="*" element={<NotFound />} /> {/* Fallback route for 404 */}
+            </Routes>
+          </main>
+          <Footer />
+        </ErrorBoundary>
       </Router>
     </ShoppingCartProvider>
   );

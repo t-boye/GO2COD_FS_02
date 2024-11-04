@@ -1,11 +1,16 @@
-import React from 'react';
+// src/pages/HomePage.js
+import React, { useContext } from 'react';
+import Hero from '../components/Hero';
 import ProductList from '../components/ProductList';
+import { ShoppingCartContext } from '../context/ShoppingCartContext'; // Import your context
 
-const HomePage = ({ products, addToCart }) => {
+const HomePage = ({ products }) => {
+  const { addToCart } = useContext(ShoppingCartContext); // Get addToCart from context
+
   return (
-    <div className="px-8 md:px-16">
-      <h1 className="text-3xl font-bold mb-4">Welcome to the Online Store</h1>
-      <ProductList products={products} addToCart={addToCart} />
+    <div className="">
+      <Hero /> 
+      <ProductList products={products} addToCart={addToCart} /> {/* Pass addToCart as a prop */}
     </div>
   );
 };
