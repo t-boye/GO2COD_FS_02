@@ -70,7 +70,7 @@ const ProductList = ({ addToCart }) => {
 
 // PropTypes for better type checking
 ProductList.propTypes = {
-  addToCart: PropTypes.func.isRequired, // Make it required
+  addToCart: PropTypes.func.isRequired, 
 };
 
 export default ProductList;

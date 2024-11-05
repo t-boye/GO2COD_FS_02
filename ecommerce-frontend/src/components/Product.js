@@ -7,7 +7,6 @@ const Product = ({ product, addToCart }) => {
       addToCart(product);
     } else {
       console.error('addToCart is not a function');
-      // Optionally, you could set some state to show an error message to the user
     }
   };
 
@@ -27,7 +26,7 @@ const Product = ({ product, addToCart }) => {
   );
 };
 
-// Define the shape of the product object for better validation
+// the shape of the product object
 Product.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number.isRequired,

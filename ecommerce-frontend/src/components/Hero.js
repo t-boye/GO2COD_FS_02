@@ -7,8 +7,12 @@ const Hero = () => {
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-shadow">
   Welcome to Our Online Shop
 </h1>
-        <p className="text-lg sm:text-xl md:text-2xl mb-6">
+<p className="text-lg sm:text-xl md:text-2xl mb-6">
           Discover the latest trends and exclusive products just for you.
+        </p>
+    
+        <p className="text-md sm:text-lg md:text-xl mb-4">
+          Join our community and stay updated with our latest offers and promotions.
         </p>
         <button className="flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105">
   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
