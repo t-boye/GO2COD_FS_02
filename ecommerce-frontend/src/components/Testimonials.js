@@ -10,15 +10,6 @@ const testimonialsData = [
     { id: 6, text: "Customer support was incredibly helpful!", author: "Tete Boye", rating: 3 },
 ];
 
-// Function to shuffle the testimonials array
-const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-};
-
 // Function to render star ratings
 const renderStars = (rating) => {
     const stars = [];
@@ -33,14 +24,12 @@ const renderStars = (rating) => {
 };
 
 const Testimonials = () => {
-    // Shuffle testimonials
-    const shuffledTestimonials = shuffleArray([...testimonialsData]);
-
     return (
         <div className="testimonials-container">
             <h2 className="text-2xl font-bold text-center mb-4">What Our Customers Say</h2>
             <div className="testimonials-wrapper">
-                {shuffledTestimonials.map(testimonial => (
+                {/* Render testimonials twice for seamless looping */}
+                {[...testimonialsData, ...testimonialsData].map(testimonial => (
                     <div key={testimonial.id} className="testimonial-item">
                         <p className="italic">"{testimonial.text}"</p>
                         <p className="font-bold text-right">- {testimonial.author}</p>
@@ -59,7 +48,7 @@ const Testimonials = () => {
                 }
                 .testimonials-wrapper {
                     display: flex;
-                    animation: scroll 10s linear infinite;
+                    animation: scroll 25s linear infinite;
                 }
                 .testimonial-item {
                     min-width: 300px; /* Adjust based on your design */
@@ -71,10 +60,10 @@ const Testimonials = () => {
                 }
                 @keyframes scroll {
                     0% {
-                        transform: translateX(100%);
+                        transform: translateX(0);
                     }
                     100% {
-                        transform: translateX(-100%);
+                        transform: translateX(-50%); /* Move left by half the total width */
                     }
                 }
             `}</style>
