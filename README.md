@@ -1,7 +1,7 @@
 # Online Shop App
 
 ## Demo
-[Online Shop Demo]([https://yourusername.github.io/ecommerce-frontend/](https://online-shoping-task.vercel.app/))
+[Online Shop Demo]([(https://online-shoping-task.vercel.app/)])
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
@@ -148,5 +148,3 @@ For more detailed information on working with React and Create React App, refer 
 - [React documentation](https://reactjs.org/docs/getting-started.html)
 
 Go wild! Make this template your own.
-
-### BackEnd developer needed for collaboration asap...
